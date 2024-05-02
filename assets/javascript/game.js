@@ -8,39 +8,40 @@ let random
 let randomNumbers = 1
 let teamOneCurrentGoals = 0
 let teamtwoCurrentGoals = 0
-let teamOneMissedShots = 0
-let teamTwoMissedShots = 0
+let teamOneShots = 0
+let teamTwoShots = 0
 let numberOfResets = 0
 
 // created event listener for team one shoot button
 teamOneShootBtn.addEventListener('click',function(){
  random = Math.random()*randomNumbers
+ let teamOneShotsTaken = document.querySelector('#teamone-numshots')
+ teamOneShots++
+ teamOneShotsTaken.textContent = teamOneShots.toString()
  if(random < .5){
     let teamOneGoals= document.querySelector('#teamone-numgoals')
     teamOneCurrentGoals++
     teamOneGoals.textContent = teamOneCurrentGoals.toString()
     
- }else{
-    let teamOneShotsTaken = document.querySelector('#teamone-numshots')
-    teamOneMissedShots++
-    teamOneShotsTaken.textContent = teamOneMissedShots.toString()
  }
+ 
  console.log(random)
 })
 
 // created event listener for team two shoot button
 teamTwoShootBtn.addEventListener('click',function(){
     random = Math.random()*randomNumbers
+    let teamTwoShotsTaken = document.querySelector('#teamtwo-numshots')
+    teamTwoShots++
+    teamTwoShotsTaken.textContent = teamTwoShots.toString()
  if(random <.5){
     let teamTwoGoals= document.querySelector('#teamtwo-numgoals')
     teamtwoCurrentGoals++
     teamTwoGoals.textContent = teamtwoCurrentGoals.toString()
- }else{
-
-    let teamTwoShotsTaken = document.querySelector('#teamtwo-numshots')
-    teamTwoMissedShots++
-    teamTwoShotsTaken.textContent = teamTwoMissedShots.toString()
  }
+
+   
+ 
  console.log(random)
 })
 
@@ -57,6 +58,6 @@ resetBtn.addEventListener('click',function(){
        document.querySelector('#teamone-numgoals').textContent = '0'
     teamOneCurrentGoals = 0
     teamtwoCurrentGoals = 0
-    teamOneMissedShots = 0
-    teamTwoMissedShots = 0
+    teamOneShots = 0
+    teamTwoShots = 0
 })
